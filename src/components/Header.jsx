@@ -1,31 +1,38 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button, Nav } from 'react-bootstrap';
 import styled from '@emotion/styled';
+import { Toggles2 } from 'react-bootstrap-icons';
 
-const Header = ({handleTheme, theme, themes}) => <HeaderWrapper>
-    <Nav style={{display : 'grid', gridTemplateColumns : '2fr 4fr'}}>
-        <HeaderText>
-            <h1><span style={brandStyle}>newsler</span></h1>
-        </HeaderText>
-        <ul>
+const Header = ({handleTheme, theme, themes}) => {
+    const location = useLocation();
+    console.log(location.pathname.includes('/story/'));
+    return <HeaderWrapper>
+        <Nav style={navStyle}>
             <Button variant={theme == 1 ? 'dark' : 'light'} style={themeStyle}>
-                <NavLink to="/" exact activeClassName="pageActive">Home</NavLink>
-            </Button>
-            <Button variant={theme == 1 ? 'dark' : 'light'} style={themeStyle}>
-                <NavLink to="/story" exact activeClassName="pageActive">Random news story</NavLink>
+                <Link to="/">
+                    <HeaderText>
+                        <h1><span style={brandStyle}>newsler</span></h1>
+                    </HeaderText>
+                </Link>
             </Button>
             <Button onClick={handleTheme} variant={theme == 1 ? 'dark' : 'light'} 
-                style={themeStyle}>
+                style={{...themeStyle, gridColumnStart : 3}}><Toggles2 />
                 {themes[theme].title}
             </Button>
-        </ul>
-    </Nav>
-</HeaderWrapper>
+        </Nav>
+    </HeaderWrapper>
+};
 
 const themeStyle = {
     backgroundColor : 'var(--colorMain)'
-}
+};
+
+const navStyle = {
+    display : 'grid', 
+    gridTemplateColumns : '2fr 6fr auto',
+    padding: '0 10px',
+};
 
 const HeaderWrapper = styled.header`
     position: fixed;
@@ -46,12 +53,12 @@ const brandStyle = {
     fontFamily: 'fantasy',
     color: 'rgb(165 42 42)',
     fontSize: '28px',
-}
+};
 
 const buttonStyle = {
     color : 'var(--colorAccent)',
     backgroundColor : 'var(--colorButton)',
-}
+};
 
 const HeaderText = styled.div`
     display: block;
@@ -64,6 +71,6 @@ const HeaderText = styled.div`
         font-size : 24px;
         margin-bottom : 0;
     }
-`
+`;
 
 export default Header;

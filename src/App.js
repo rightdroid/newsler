@@ -1,5 +1,4 @@
 import './App.css';
-import { BrowserRouter } from "react-router-dom";
 import Header from './components/Header'
 import Body from './components/Body'
 import { useState } from 'react';
@@ -33,12 +32,10 @@ function App() {
     }
     
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Header handleTheme={handleTheme} theme={theme} themes={THEMES}/>
-                <Body theme={theme}/>
-            </div>
-        </BrowserRouter>
+        <div className="App">
+            <Header handleTheme={handleTheme} theme={theme} themes={THEMES}/>
+            <Body theme={theme}/>
+        </div>
     );
 }
 

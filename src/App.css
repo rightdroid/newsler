@@ -28,6 +28,11 @@ html button
     border: 0;
 }
 
+html a
+{
+    text-decoration: none;
+}
+
 button, button > a,
 button.btn
 {
