@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import ImgWithFallback from '../components/ImgWithFallback';
 
 const NEWS_ITEM = gql`

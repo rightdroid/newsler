@@ -9,14 +9,14 @@ const Header = ({handleTheme, theme, themes}) => {
     console.log(location.pathname.includes('/story/'));
     return <HeaderWrapper>
         <Nav style={navStyle}>
-            <Button variant={theme == 1 ? 'dark' : 'light'} style={themeStyle}>
+            <Button variant={theme === 1 ? 'dark' : 'light'} style={themeStyle}>
                 <Link to="/">
                     <HeaderText>
                         <h1><span style={brandStyle}>newsler</span></h1>
                     </HeaderText>
                 </Link>
             </Button>
-            <Button onClick={handleTheme} variant={theme == 1 ? 'dark' : 'light'} 
+            <Button onClick={handleTheme} variant={theme === 1 ? 'dark' : 'light'} 
                 style={{...themeStyle, gridColumnStart : 3}}><Toggles2 />
                 {themes[theme].title}
             </Button>
@@ -53,11 +53,6 @@ const brandStyle = {
     fontFamily: 'fantasy',
     color: 'rgb(165 42 42)',
     fontSize: '28px',
-};
-
-const buttonStyle = {
-    color : 'var(--colorAccent)',
-    backgroundColor : 'var(--colorButton)',
 };
 
 const HeaderText = styled.div`

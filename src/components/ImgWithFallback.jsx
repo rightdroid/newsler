@@ -3,10 +3,10 @@ import { Card, Image } from 'react-bootstrap';
 
 const ImgWithFallback = ({opts, imgType}) => {
     
-    if(imgType == 'card')
+    if(imgType === 'card')
         return <Card.Img {...opts} onError={setDefaultImgSrc} />
     else
-        return <Image {...opts} onError={setDefaultImgSrc} />;
+        return <Image {...opts} onError={setDefaultImgSrc}  />;
 }
 
 const setDefaultImgSrc = e =>{

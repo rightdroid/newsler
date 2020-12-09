@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Switch, Route } from "react-router-dom";
-import Story from '../views/StoryView';
-import Home from '../views/HomeView';
-import Page404 from '../views/Page404View';
+import StoryView from '../views/StoryView';
+import HomeView from '../views/HomeView';
+import Page404View from '../views/Page404View';
 import { Container } from 'react-bootstrap';
-import { AnimateOnChange } from 'react-animation';
 
-const Body = ({acs}) => {
-    const [open, setOpen] = useState(false);
-    
+const Body = ({theme}) => {
     return <Container style={{margin : '65px auto'}}>
-        <AnimateOnChange >
-            <Switch >
-                <Route path="/" exact><Home acs={acs} /></Route>
-                <Route path="/story/:id"><Story acs={acs} /></Route>
-                <Route component={Page404} />
-            </Switch>
-        </AnimateOnChange>
+        <Switch >
+            <Route path="/" exact><HomeView theme={theme} /></Route>
+            <Route path="/story/:id"><StoryView theme={theme} /></Route>
+            <Route><Page404View theme={theme} /></Route>
+        </Switch>
     </Container>
 }
 

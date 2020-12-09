@@ -24,8 +24,8 @@ function App() {
         const newThemeId =( theme + 1) > (THEMES.length - 1) ? 0 : theme + 1;
         
         for (let i = 0, j = COLOR_TYPES.length; i < j; i++) {
-            const col = getComputedStyle(document.body).
-                getPropertyValue(`--color${COLOR_TYPES[i] + THEMES[newThemeId].title}`);
+            const col = getComputedStyle(document.body)
+                .getPropertyValue(`--color${COLOR_TYPES[i] + THEMES[newThemeId].title}`);
             document.documentElement.style.setProperty(`--color${COLOR_TYPES[i]}`, col);
         }
         setTheme(newThemeId);
