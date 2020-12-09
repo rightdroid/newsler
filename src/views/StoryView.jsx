@@ -41,7 +41,11 @@ const StoryView = ({theme}) => {
     return <Col style={themeStyle}>
         <Row>
             <Col style={titleStyle}>
-                <a href={data.newsItem.url} target='_blank' style={themeStyle}><LinkIconWrapper ><Link45deg /></LinkIconWrapper></a> <h1 style={themeStyle}>{data.newsItem.title}</h1>
+                <a href={data.newsItem.url} target='_blank' 
+                style={{...themeStyle, float : 'left'}}>
+                    <LinkIconWrapper ><Link45deg /></LinkIconWrapper>
+                </a> 
+                <h1 style={themeStyle}>{data.newsItem.title}</h1>
             </Col>
         </Row>
         <Row>
@@ -68,14 +72,15 @@ const StoryView = ({theme}) => {
 
 const LinkIconWrapper = styled.div`
     display : inline-grid;
+    position: relative;
+    bottom: -5px;
+    margin-right : 10px;
     align-items : center;
     font-size : 22px;
     width : 30px;
     height : 30px;
-    float : left;
     border-radius : 100%;
     box-shadow : 1px 1px 3px 0px var(--colorAccent);
-    transform : translate(-9px, 7px);
     cursor : pointer;
     & svg {
         margin : 0 auto;
