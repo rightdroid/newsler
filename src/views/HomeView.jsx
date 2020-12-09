@@ -25,7 +25,7 @@ const Home = ({theme}) => {
     const { loading, error, data } = useQuery(NEWS_ITEMS);
     
     if (loading) return <LoadingSpinner />;
-    if (error) return <p>Error</p>;
+    if (error) return `Error! ${error}`;
     
     return <NewsList theme={theme} items={data.newsList.rows} />
 };

@@ -31,6 +31,7 @@ const Story = () => {
     
     if (loading) return <LoadingSpinner />;
     if (error) return `Error! ${error}`;
+    
     return <Row>
         <Col>
             <Row>

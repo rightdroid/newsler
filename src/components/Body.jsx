@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Switch, Route } from "react-router-dom";
-import Story from '../views/Story';
-import Home from '../views/Home';
-import Page404 from '../views/Page404';
+import Story from '../views/StoryView';
+import Home from '../views/HomeView';
+import Page404 from '../views/Page404View';
 import { Container } from 'react-bootstrap';
 import { AnimateOnChange } from 'react-animation';
 
