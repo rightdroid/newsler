@@ -1,38 +1,48 @@
-.App {
-  text-align: center;
+:root
+{
+    --colorMain : rgb(250, 253, 242);
+    --colorSecondary : rgb(255, 255, 255);
+    --colorAccent : rgb(120, 120, 120);
+    --colorMainLight : rgb(250, 253, 242);
+    --colorSecondaryLight : rgb(255, 255, 255);
+    --colorAccentLight :   rgb(120, 120, 120);
+    --colorMainDark : #343a40;
+    --colorSecondaryDark : rgb(58, 62, 66);
+    --colorAccentDark : rgb(90, 197, 222);
+    --colorMainContrast :  rgb(0, 0, 0);
+    --colorSecondaryContrast :  rgb(0, 0, 0);
+    --colorAccentContrast : rgb(255, 255, 0);
+    
+    --colorButton : rgb(150, 120, 150);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html > body
+{
+    background-color: var(--colorMain);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html button
+{
+    background-color: var(--colorButton);
+    outline: 0;
+    border: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button, button > a,
+button.btn
+{
+    color: var(--colorAccent);
 }
 
-.App-link {
-  color: #61dafb;
+html a:hover,
+button:hover,
+button.btn:hover,
+button.btn:hover a
+{
+    text-decoration: none;
+    color: var(--colorAccent);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.newsItemCard:nth-child(3n + 1) {
+    grid-column: auto / span 2;
 }

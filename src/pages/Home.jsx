@@ -1,7 +1,8 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import NewsItemCard from '../components/NewsItemCard';
-import { Spinner } from 'react-bootstrap';
+import { Spinner, Row, Col } from 'react-bootstrap';
+import NewsList from '../components/NewsList';
 
 const NEWS_ITEMS = gql`
   query {
@@ -21,21 +22,13 @@ const NEWS_ITEMS = gql`
 }
 `
 
-function Home() {
+const Home = ({theme}) => {
     const { loading, error, data } = useQuery(NEWS_ITEMS);
     
     if (loading) return <Spinner animation="grow" />;
-    if (error) return <p>Error </p>;
+    if (error) return <p>Error</p>;
     
-    return data.newsList.rows.map(({ id, title, img, url, comments }) => (
-        <NewsItemCard 
-            key={id}
-            url={url}
-            title={title}
-            img={img}
-            commentsCount={comments.length}
-        />
-    ));
+    return <NewsList theme={theme} />
 }
 
 export default Home;
