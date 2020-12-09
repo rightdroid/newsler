@@ -2,13 +2,16 @@
 {
     --colorMain : rgb(250, 253, 242);
     --colorSecondary : rgb(255, 255, 255);
-    --colorAccent : rgb(120, 120, 120);
+    --colorAccent :rgb(97, 97, 97);
+    
     --colorMainLight : rgb(250, 253, 242);
     --colorSecondaryLight : rgb(255, 255, 255);
-    --colorAccentLight :   rgb(120, 120, 120);
+    --colorAccentLight :  rgb(97, 97, 97);
+    
     --colorMainDark : #343a40;
     --colorSecondaryDark : rgb(58, 62, 66);
     --colorAccentDark : rgb(90, 197, 222);
+    
     --colorMainContrast :  rgb(0, 0, 0);
     --colorSecondaryContrast :  rgb(0, 0, 0);
     --colorAccentContrast : rgb(255, 255, 0);
@@ -42,6 +45,7 @@ button.btn
 html a:hover,
 button:hover,
 button.btn:hover,
+button.btn:focus,
 button.btn:hover a
 {
     text-decoration: none;

@@ -31,12 +31,10 @@ function App() {
         setTheme(newThemeId);
     }
     
-    return (
-        <div className="App">
-            <Header handleTheme={handleTheme} theme={theme} themes={THEMES}/>
-            <Body theme={theme}/>
-        </div>
-    );
+    return <div className="App">
+        <Header handleTheme={handleTheme} theme={theme} themes={THEMES}/>
+        <Body theme={theme}/>
+    </div>;
 }
 
 export default App;

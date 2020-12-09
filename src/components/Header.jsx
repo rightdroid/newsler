@@ -30,7 +30,7 @@ const themeStyle = {
 
 const navStyle = {
     display : 'grid', 
-    gridTemplateColumns : '2fr 6fr auto',
+    gridTemplateColumns : 'auto 6fr auto',
     padding: '0 10px',
 };
 
@@ -38,7 +38,7 @@ const HeaderWrapper = styled.header`
     position: fixed;
     z-index: 5000;
     background-color: var(--colorMain);
-    width: 100vw;
+    width: 100%;
     padding: 5px 0;
     top: 0;
     box-shadow: 0 1px 7px 1px rgb(100,100,100,0.5);
