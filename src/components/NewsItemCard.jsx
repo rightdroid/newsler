@@ -6,7 +6,9 @@ import { ChatDots } from 'react-bootstrap-icons';
 
 const NewsItemCard = ({id, title, img, commentsCount, theme}) => <Card
     className='newsItemCard'>
-    <ImgWithFallback type='card' opts={{variant : 'top', src : img}} />
+    <Link to={`/story/${id}`} style={themeStyle}>        
+        <ImgWithFallback type='card' opts={{variant : 'top', src : img}} />
+    </Link>
     <Card.Body style={themeStyle} >
         <Link to={`/story/${id}`} style={themeStyle}>
             <Card.Title style={themeStyle}>{title}</Card.Title>
