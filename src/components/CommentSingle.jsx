@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 import styled from '@emotion/styled';
-import { PersonBadgeFill, Person, PersonCircle, Clock } from 'react-bootstrap-icons';
+import { PersonCircle, Clock } from 'react-bootstrap-icons';
 import Moment from 'react-moment';
 
 const CommentSingle = ({theme, comment}) => {
@@ -10,13 +10,13 @@ const CommentSingle = ({theme, comment}) => {
             <PersonCircle style={{width : '100%', height : '100%'}}/>
         </ProfileImage>
         <CommentBody>
-            <CommentBodyHeader><Clock /> <Moment date={comment.createdDate} durationFromNow /> ago</CommentBodyHeader>
+            <CommentBodyHeader><b style={{fontFamily : 'Calibri'}}>{comment.email}</b> <Clock /> <Moment date={comment.createdDate} durationFromNow /> ago</CommentBodyHeader>
             <CommentBodyContent>
                 {comment.content}
             </CommentBodyContent>
         </CommentBody>
     </ListGroup.Item>
-}
+};
 
 const ProfileImage = styled.div`
     width : 60px;
@@ -41,6 +41,6 @@ const CommentBodyContent = styled.div`
 const themeStyle = {
     backgroundColor : 'var(--colorMain)',
     color : 'var(--colorAccent)',
-}
+};
 
 export default CommentSingle;

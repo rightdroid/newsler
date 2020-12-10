@@ -2,11 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Row, Col, Card, ListGroup } from 'react-bootstrap';
+import { Row, Col, ListGroup } from 'react-bootstrap';
 import ImgWithFallback from '../components/ImgWithFallback';
 import CommentSingle from '../components/CommentSingle';
 import { Link45deg } from 'react-bootstrap-icons';
 import styled from '@emotion/styled';
+import CommentAdd from '../components/CommentAdd';
 
 const NEWS_ITEM = gql`
     query GetNewsItem($id: ID!){
@@ -41,7 +42,7 @@ const StoryView = ({theme}) => {
     return <Col style={themeStyle}>
         <Row>
             <Col style={titleStyle}>
-                <a href={data.newsItem.url} target='_blank' 
+                <a href={data.newsItem.url} target='_blank' rel='noreferrer'
                 style={{...themeStyle, float : 'left'}}>
                     <LinkIconWrapper ><Link45deg /></LinkIconWrapper>
                 </a> 
@@ -60,9 +61,10 @@ const StoryView = ({theme}) => {
             <Col style={contentStyle}>{data.newsItem.content}</Col>
         </Row>
         <ListGroup variant='flush' id='comments' name='comments'>
-        <ListGroup.Item style={themeStyle}>
-            <h3 id='comments' name='comments'>Comments</h3>
-        </ListGroup.Item>
+            <ListGroup.Item style={themeStyle}>
+                <h3 id='comments' name='comments'>Comments</h3>
+            </ListGroup.Item>
+            <CommentAdd theme={theme} storyId={id}/>
             {data.newsItem.comments.map( (comment, i) => {
                 return <CommentSingle key={comment.id} theme={theme} comment={comment} />
             })}

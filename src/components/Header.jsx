@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button, Nav } from 'react-bootstrap';
 import styled from '@emotion/styled';
 import { Toggles2 } from 'react-bootstrap-icons';
 
 const Header = ({handleTheme, theme, themes}) => {
-    const location = useLocation();
-    console.log(location.pathname.includes('/story/'));
     return <HeaderWrapper>
         <Nav style={navStyle}>
             <Button variant={theme === 1 ? 'dark' : 'light'} style={themeStyle}>
