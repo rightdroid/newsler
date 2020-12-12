@@ -1,6 +1,6 @@
 import React from 'react';
 import NewsList from '../components/NewsList';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import LoadingSpinner from '../components/LoadingSpinner';
 import queries from '../shared/constants/queries';
 
