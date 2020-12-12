@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import './static/css/bootstrap.min.css';
+import routes from './shared/constants/routes';
 
 const client = new ApolloClient({
   uri: 'https://news-reader.stagnationlab.dev/graphql',
@@ -16,7 +17,7 @@ const client = new ApolloClient({
 ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <BrowserRouter>
+            <BrowserRouter basename={routes.BASENAME}>
                 <App />
             </BrowserRouter>
         </ApolloProvider>

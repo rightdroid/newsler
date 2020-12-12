@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { Button, Nav } from 'react-bootstrap';
 import styled from '@emotion/styled';
 import { Toggles2 } from 'react-bootstrap-icons';
+import routes from '../shared/constants/routes';
 
 const Header = ({handleTheme, theme, themes}) => {
     return <HeaderWrapper>
         <Nav style={navStyle}>
             <Button variant={theme === 1 ? 'dark' : 'light'} style={themeStyle}>
-                <Link to="/">
+                <Link to={routes.HOME}>
                     <HeaderText>
                         <h1><span style={brandStyle}>newsler</span></h1>
                     </HeaderText>
