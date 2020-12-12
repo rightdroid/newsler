@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Row, Col, ListGroup } from 'react-bootstrap';
 import ImgWithFallback from '../components/ImgWithFallback';
@@ -8,31 +8,12 @@ import CommentSingle from '../components/CommentSingle';
 import { Link45deg } from 'react-bootstrap-icons';
 import styled from '@emotion/styled';
 import CommentAdd from '../components/CommentAdd';
-
-const NEWS_ITEM = gql`
-    query GetNewsItem($id: ID!){
-        newsItem(id: $id)
-        { 
-          title
-          content
-          url
-          img
-          comments
-          {
-            id
-            content
-            email
-            createdDate
-          }
-         
-        }
-      }
-`;
+import queries from '../shared/constants/queries';
 
 const StoryView = ({theme}) => {
     const { id } = useParams();
     
-    const { loading, error, data } = useQuery(NEWS_ITEM, {
+    const { loading, error, data } = useQuery(queries.GET_NEWS_ITEM, {
         variables: { id },
     });
     

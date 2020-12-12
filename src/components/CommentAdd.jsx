@@ -5,34 +5,35 @@ import { PersonCircle, Clock, HandThumbsUp } from 'react-bootstrap-icons';
 import Moment from 'react-moment';
 import { gql, useMutation } from '@apollo/client';
 import { useState } from 'react';
-
-const CREATE_COMMENT = gql`
-  mutation CreateComment($input: CreateCommentInput!) {
-    createComment(input: $input) {
-        id
-        email
-        content
-        createdDate
-    }
-  }
-`;
+import queries from '../shared/constants/queries';
 
 const CommentAdd = ({theme, storyId}) => {
     
     const [createComment, 
-        { loading : mutationLoading, error : mutationError}
-    ] = useMutation(CREATE_COMMENT, 
-        // {
-        //     update(cache, {data : {createComment}}){
-        //         cache.modify(
-        //             {
-        //                 fields : {
-        //                     art
-        //                 }
-        //             }
-        //         )
-        //     }
-        // }
+        { loading, error }
+    ] = useMutation(queries.CREATE_COMMENT, 
+        {
+            update(cache, {data : {createComment}}){
+                cache.modify(
+                    {
+                        fields: {
+                            comments(existingTodos = []) {
+                                const newCommentRef = cache.writeFragment({
+                                    data: createComment,
+                                    fragment: gql`
+                                        fragment NewComment on Comment {
+                                        id
+                                        type
+                                        }
+                                    `
+                                });
+                              return [...existingTodos, newCommentRef];
+                            }
+                          }
+                    }
+                )
+            }
+        }
     );
     const [commentSent, setCommentSent] = useState(false);
     let emailInput, contentInput;
@@ -81,8 +82,8 @@ const CommentAdd = ({theme, storyId}) => {
                     border : '1px solid var(--colorAccent)',
                     margin : '10px 0'}}>Submit</Button>
                 </Form>
-                {mutationLoading && <p>Loading...</p>}
-                {mutationError && <p>Error :( Please try again</p>}
+                {loading && <p>Loading...</p>}
+                {error && <p>Error :( Please try again</p>}
             </CommentBodyContent>
         </CommentBody>
     </ListGroup.Item>

@@ -9,6 +9,7 @@ import './static/css/bootstrap.min.css';
 
 const client = new ApolloClient({
   uri: 'https://news-reader.stagnationlab.dev/graphql',
+//   uri: 'http://localhost:4000',
   cache: new InMemoryCache()
 });
 

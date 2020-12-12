@@ -2,27 +2,11 @@ import React from 'react';
 import NewsList from '../components/NewsList';
 import { useQuery, gql } from '@apollo/client';
 import LoadingSpinner from '../components/LoadingSpinner';
+import queries from '../shared/constants/queries';
 
-const NEWS_ITEMS = gql`
-  query {
-    newsList(skip: 0 limit : 0) {
-      rows
-      {
-        id
-        title
-        img
-        url
-        comments
-        {
-          id
-        }
-      }
-    }
-}
-`;
 
 const Home = ({theme}) => {
-    const { loading, error, data } = useQuery(NEWS_ITEMS);
+    const { loading, error, data } = useQuery(queries.GET_NEWS_ITEMLIST);
     
     if (loading) return <LoadingSpinner />;
     if (error) return `Error! ${error}`;
