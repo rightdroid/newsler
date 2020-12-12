@@ -73,11 +73,11 @@ const LinkIconWrapper = styled.div`
 const contentStyle = {
     paddingTop : '20px',
     paddingBottom : '60px',
-}
+};
 
 const titleStyle = {
     padding : '20px 20px',
-}
+};
 
 const themeStyle = {
     backgroundColor : 'var(--colorMain)',
